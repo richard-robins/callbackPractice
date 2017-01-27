@@ -62,11 +62,15 @@ last(names, function(lastName){
 
 
   //Code Here for multiply
+var multiply = function(x, y, callingBack){
+  callingBack(x*y);
+}
+
+
 
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
 })
-
 
 
 
@@ -78,6 +82,16 @@ multiply(4, 3, function(answer){
 
 
   //Code Here for contains
+var contains = function(names, nameStr, callingBackAgain){
+  if (names.indexOf(nameStr) === -1){
+    result = false
+  }else {result = true;
+  }
+
+
+  callingBackAgain(result);
+
+}
 
 contains(names, 'Colt', function(result){
   if(result === true){
@@ -97,6 +111,13 @@ contains(names, 'Colt', function(result){
 
 
     //Code Here for uniq
+var uniq = function(names, cb5){
+  var uniqArr = names.filter(function (item, i, arr) {
+	return arr.indexOf(item) === i;
+});
+  cb5(uniqArr);
+}
+
 
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
@@ -112,6 +133,9 @@ uniq(names, function(uniqArr){
 
 
     //Code Here for each
+var each = function() {
+  
+}
 
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item)
